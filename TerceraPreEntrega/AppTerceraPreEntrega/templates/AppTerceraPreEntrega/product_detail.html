@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+<center>
+  <div style='text-align:left'>
+    <p>
+      <strong>Nombre:</strong> {{object.name}}
+    </p>
+    <p>
+      <strong>Marca:</strong> {{object.brand}}
+    </p>
+    <p>
+      <strong>Precio:</strong> {{object.price}}
+    </p>
+    <p>
+      <strong>Stock:</strong> {{object.stock}}
+    </p>
+  </div>
+</center>
+<br>
+<a href="{% url 'list_products' %}">Volver lista</a>
+
+{% endblock contenido %}

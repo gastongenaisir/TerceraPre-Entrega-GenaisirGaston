@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Ventas</h1>
+    <a href="{% url 'create_sale' %}">Agregar Venta
+        <i class="bi bi-file-earmark-plus-fill"></i>
+    </a>
+    <br><br>
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>id</th>
+          <th>Vendedor</th>
+          <th>Cliente</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>importe</th>
+        </tr>
+        {% for sale in object_list %}
+        <tr>
+          <td>{{ sale.id }}</td>
+          <td>{{ sale.username }}</td>
+          <td>{{ sale.client }}</td>
+          <td>{{ sale.product }}</td>
+          <td>{{ sale.amount }}</td>
+          <td>{{ sale.total_price }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="{% url 'view_sale' sale.id %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'delete_sale' sale.id %}">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+{% endblock contenido %}

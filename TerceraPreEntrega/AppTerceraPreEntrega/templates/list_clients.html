@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+<section>
+  <div >
+    <h1>Lista de Clientes</h1>
+    <a href="{% url 'create_client' %}">Agregar Cliente
+      <i class="bi bi-person-plus-fill"></i>
+    </a>
+    <br><br>
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Telefono</th>
+        </tr>
+        {% for client in object_list %}
+        <tr>
+          <td>{{ client.id }}</td>
+          <td>{{ client.first_name }}</td>
+          <td>{{ client.last_name }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.phone }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="{% url 'view_client' client.id %}">Ver</a>
+          </td>
+          <td>
+            <a href="{% url 'edit_client' client.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'delete_client' client.id %}">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+{% endblock contenido %}

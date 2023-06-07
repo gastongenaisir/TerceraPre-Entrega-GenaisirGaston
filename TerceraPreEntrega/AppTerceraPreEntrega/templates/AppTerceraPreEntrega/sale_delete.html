@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p>¿Estas seguro deseas eliminar la Venta: {{object.username}}, {{object.cliente}}, {{object.producto}}?</p>
+  <input type="submit" value="Eliminar" />
+</form>
+
+<br>
+<a href="{% url 'list_sales' %}">Volver lista</a>
+
+{% endblock contenido %}
